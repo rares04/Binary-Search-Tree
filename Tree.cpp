@@ -29,8 +29,7 @@ Node* Tree::insert(int v, Node* tree) {
         else
             if (v > tree->value)  // If the value of the new node is higher than the current node, search on the right side
                 tree->right = insert(v, tree->right);
-
-    return tree;
+            
 }
 
 Node* Tree::find_min(Node* tree) const {

@@ -23,3 +23,23 @@ void TestCount()
     cout << "\nHeight: " << BT.height(BT.root);
 
 }
+
+void TestInsert()
+{
+    Tree BT;
+    Node* root = new Node(1);
+    BT.root = root;
+    BT.insert(4, root);
+    BT.insert(2, root);
+    BT.insert(3, root);
+    BT.insert(6, root);
+    BT.insert(5, root);
+    BT.del(5, root);
+    BT.del(4, root);
+
+    cout << "\nNumber of nodes: " << BT.countNodes(BT.root);
+    cout << "\nNumber of edges: " << BT.countEdges(BT.root);
+    cout << "\nHeight: " << BT.height(BT.root);
+
+    cout << "\nTest insert and delete";
+}
