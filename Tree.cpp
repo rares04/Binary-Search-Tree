@@ -19,9 +19,7 @@ Tree::~Tree() {
 Node* Tree::insert(int v, Node* tree) {
     // If the tree is empty the function will create a new node single node, the root node
     if (tree == NULL) {  
-        tree = new Node;
-        tree->value = v;
-        tree->left = tree->right = NULL;
+        return (tree = new Node(v));
     }
     else // Else recurrently searching for the right position where to add the new node
         if (v < tree->value)  // If the value of the new node is lower than the current node, search on the left side
@@ -29,7 +27,6 @@ Node* Tree::insert(int v, Node* tree) {
         else
             if (v > tree->value)  // If the value of the new node is higher than the current node, search on the right side
                 tree->right = insert(v, tree->right);
-            
 }
 
 Node* Tree::find_min(Node* tree) const {
@@ -89,8 +86,7 @@ Node* Tree::del(int v, Node* tree) {
     return tree;
 }
 
-int Tree::countNodes(Node* tree)
-{
+int Tree::countNodes(Node* tree) {
     int count = 1;
 
     if (tree->left != NULL)
@@ -102,13 +98,12 @@ int Tree::countNodes(Node* tree)
     return count;
 }
 
-int Tree::countEdges(Node* tree)
-{
+int Tree::countEdges(Node* tree) {
+    // The number of edges is the the number of Nodes-1, because this is a binary tree, so each node can have up to 2 sons
     return countNodes(tree) - 1;
 }
 
-int Tree::height(Node* tree)
-{
+int Tree::height(Node* tree) {
     return (countNodes(tree) - 1)/2;
 }
 

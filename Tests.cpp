@@ -2,6 +2,7 @@
 #include "Node.h"
 #include "Tree.h"
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 void TestCount()
@@ -18,9 +19,9 @@ void TestCount()
     BT.root->left->left->left = new Node(8);
     BT.root->left->left->right = new Node(9);
 
-    cout << "\nNumber of nodes: " << BT.countNodes(BT.root);
-    cout << "\nNumber of edges: " << BT.countEdges(BT.root);
-    cout << "\nHeight: " << BT.height(BT.root);
+    assert(BT.countNodes(BT.root) == 9);
+    assert(BT.countEdges(BT.root) == 8);
+    assert(BT.height(BT.root) == 4);
 
 }
 
