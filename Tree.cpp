@@ -29,6 +29,8 @@ Node* Tree::insert(int v, Node* tree) {
         else
             if (v > tree->value)  // If the value of the new node is higher than the current node, search on the right side
                 tree->right = insert(v, tree->right);
+
+    return tree;
 }
 
 Node* Tree::find_min(Node* tree) const {
@@ -87,3 +89,27 @@ Node* Tree::del(int v, Node* tree) {
 
     return tree;
 }
+
+int Tree::countNodes(Node* tree)
+{
+    int count = 1;
+
+    if (tree->left != NULL)
+        count += countNodes(tree->left);
+
+    if (tree->left != NULL)
+        count += countNodes(tree->right);
+
+    return count;
+}
+
+int Tree::countEdges(Node* tree)
+{
+    return countNodes(tree) - 1;
+}
+
+int Tree::height(Node* tree)
+{
+    return (countNodes(tree) - 1)/2;
+}
+

@@ -34,4 +34,15 @@ public:
 
     // Finds the node with the maximal value
     Node* find_max(Node* tree) const;
+
+    //returns number of Nodes
+    int countNodes(Node* tree);
+
+    //returns number of Edges
+    int countEdges(Node* tree);
+
+    //returns height of Binary Tree
+    int height(Node* tree);
+
+
 };
