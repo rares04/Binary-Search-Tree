@@ -44,5 +44,13 @@ public:
     // Returns the height of the Binary Tree
     int height(Node* tree);
 
+    // Print its nodes according to the "bottom-up" postorder traversal.
+    void ShowPostorder(Node* node);
+
+    // Print its nodes in inorder*/
+    void ShowInorder(Node* node);
+
+    // Print its nodes in preorder*/
+    void ShowPreorder(Node* node);
 
 };

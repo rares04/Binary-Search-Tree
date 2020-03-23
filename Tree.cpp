@@ -107,3 +107,47 @@ int Tree::height(Node* tree) {
     return (countNodes(tree) - 1)/2;
 }
 
+void Tree::ShowPostorder(Node* node)
+{
+    if (node == NULL)
+        return;
+
+    // first recur on left subtree
+    ShowPostorder(node->left);
+
+    // then recur on right subtree
+    ShowPostorder(node->right);
+
+    // now deal with the node
+    cout << node->value << " ";
+}
+
+void Tree::ShowInorder(Node* node)
+{
+    if (node == NULL)
+        return;
+
+    // first recur on left child
+    ShowInorder(node->left);
+
+    // then Show the value of node
+    cout << node->value << " ";
+
+    // now recur on right child
+    ShowInorder(node->right);
+}
+
+void Tree::ShowPreorder(Node* node)
+{
+    if (node == NULL)
+        return;
+
+    // first Show value of node
+    cout << node->value << " ";
+
+    // then recur on left subtree */
+    ShowPreorder(node->left);
+
+    // now recur on right subtree */
+    ShowPreorder(node->right);
+}

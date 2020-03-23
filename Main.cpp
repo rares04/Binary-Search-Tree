@@ -8,5 +8,6 @@ int main()
 {
      TestCount();
      TestInsert();
+     TestOrder();
     cout << "\n\nCorona!";
 }

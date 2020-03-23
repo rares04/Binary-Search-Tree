@@ -44,3 +44,23 @@ void TestInsert()
 
     cout << "\nTest insert and delete";
 }
+
+void TestOrder()
+{
+    Tree BT;
+    BT.root = new Node(1);
+
+    BT.root->left = new Node(2);
+    BT.root->right = new Node(3);
+    BT.root->left->left = new Node(4);
+    BT.root->left->right = new Node(5);
+
+    cout << "\nPreorder traversal of binary tree is \n";
+    BT.ShowPreorder(BT.root);
+
+    cout << "\nInorder traversal of binary tree is \n";
+    BT.ShowInorder(BT.root);
+
+    cout << "\nPostorder traversal of binary tree is \n";
+    BT.ShowPostorder(BT.root);
+}

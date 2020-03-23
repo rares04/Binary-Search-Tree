@@ -2,3 +2,5 @@
 void TestCount();
 
 void TestInsert();
+
+void TestOrder();
