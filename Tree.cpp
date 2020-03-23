@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Node.h"
 #include "Tree.h"
 
@@ -27,6 +26,7 @@ Node* Tree::insert(int v, Node* tree) {
         else
             if (v > tree->value)  // If the value of the new node is higher than the current node, search on the right side
                 tree->right = insert(v, tree->right);
+    return tree;
 }
 
 Node* Tree::find_min(Node* tree) const {
@@ -89,10 +89,11 @@ Node* Tree::del(int v, Node* tree) {
 int Tree::countNodes(Node* tree) {
     int count = 1;
 
+    // The nodes will be counted by going into the maximum depth of each subtree recurently
     if (tree->left != NULL)
         count += countNodes(tree->left);
 
-    if (tree->left != NULL)
+    if (tree->right != NULL)
         count += countNodes(tree->right);
 
     return count;
@@ -104,7 +105,19 @@ int Tree::countEdges(Node* tree) {
 }
 
 int Tree::height(Node* tree) {
-    return (countNodes(tree) - 1)/2;
+    if (tree == NULL)
+        return 0;
+    else
+    {
+        // Going into the depth of each subtree
+        int left= height(tree->left);
+        int right = height(tree->right);
+
+        // The bigger one is the correct one
+        if (left > right)
+            return(left + 1);
+        else return(right + 1);
+    }
 }
 
 void Tree::ShowPostorder(Node* node)

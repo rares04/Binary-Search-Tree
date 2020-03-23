@@ -3,10 +3,11 @@
 #include "Tree.h"
 #include <iostream>
 #include <cassert>
-using namespace std;
 
 void TestCount()
 {
+    std::cout << "Testing count functions\n";
+
     Tree BT;
     BT.root = new Node(1);
 
@@ -27,9 +28,12 @@ void TestCount()
 
 void TestInsert()
 {
+    std::cout << "\nTesting insert and delete functions\n";
+
     Tree BT;
     Node* root = new Node(1);
     BT.root = root;
+
     BT.insert(4, root);
     BT.insert(2, root);
     BT.insert(3, root);
@@ -38,11 +42,10 @@ void TestInsert()
     BT.del(5, root);
     BT.del(4, root);
 
-    cout << "\nNumber of nodes: " << BT.countNodes(BT.root);
-    cout << "\nNumber of edges: " << BT.countEdges(BT.root);
-    cout << "\nHeight: " << BT.height(BT.root);
+    assert(BT.countNodes(BT.root) == 4);
+    assert(BT.countEdges(BT.root) == 3);
+    assert(BT.height(BT.root) == 4);
 
-    cout << "\nTest insert and delete";
 }
 
 void TestOrder()
@@ -55,12 +58,12 @@ void TestOrder()
     BT.root->left->left = new Node(4);
     BT.root->left->right = new Node(5);
 
-    cout << "\nPreorder traversal of binary tree is \n";
+    std::cout << "\nPreorder traversal of binary tree is \n";
     BT.ShowPreorder(BT.root);
 
-    cout << "\nInorder traversal of binary tree is \n";
+    std::cout << "\nInorder traversal of binary tree is \n";
     BT.ShowInorder(BT.root);
 
-    cout << "\nPostorder traversal of binary tree is \n";
+    std::cout << "\nPostorder traversal of binary tree is \n";
     BT.ShowPostorder(BT.root);
 }
